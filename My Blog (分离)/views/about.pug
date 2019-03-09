@@ -1,0 +1,50 @@
+extends ./layout/layout
+
+block css
+  link(rel="stylesheet", href="/css/main.css")
+  style.
+    .nav a:nth-child(5){
+      color: #ff7f21;
+    }
+
+block contents
+    .about-content
+        .w1000
+            .item.info
+                .title
+                    h3 我的介绍
+                .cont
+                    img(src='/img/bigbao.jpg')
+                    .per-info
+                        .myself
+                            .name 名字：bigbao                        
+                            .age 生日：1995-09-22
+                            .Career 职业：程序猿
+                            .interest 学历：本科
+            .item.tool
+                .title
+                    h3 我的技能
+                .layui-fluid
+                    .layui-row
+                        .layui-col-xs6.layui-col-sm3.layui-col-md3
+                            .cont-box
+                                img(src='/img/css.jpg')
+                                p 80%
+                        .layui-col-xs6.layui-col-sm3.layui-col-md3
+                            .cont-box
+                                img(src='/img/mongodb.jpg')
+                                p 70%
+                        .layui-col-xs6.layui-col-sm3.layui-col-md3
+                            .cont-box
+                                img(src='/img/node.png')
+                                p 70%
+                        .layui-col-xs6.layui-col-sm3.layui-col-md3
+                            .cont-box
+                                img(src='/img/vue.jpg')
+                                p 70%
+
+
+
+block scripts
+    script(src="/js/add.js")
+                            

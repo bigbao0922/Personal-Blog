@@ -1,0 +1,66 @@
+extends ./layout/layout
+
+block css
+  link(rel="stylesheet", href="/css/message.css")
+
+block contents
+    .content.whisper-content.leacots-content
+        .cont.w1000
+            .whisper-list
+                .item-box
+                    .review-version
+                        .form-box
+                            img.banner-img(src="/img/liuyan.jpg")
+                            .form
+                                form.layui-form(action="")
+                                    .layui-form-item.layui-form-text
+                                        .layui-input-block
+                                            textarea#layui-textarea(name="desc" class="layui-textarea")
+                                    .layui-form-item
+                                        .layui-input-block(style="text-align: right;")
+                                            button.layui-btn.definite 确定
+                        .volume 全部留言
+                            p= maxNum
+                        .list-cont
+                            each info in message
+                                .cont
+                                    .img
+                                        img(src=info.user.avatar)
+                                    .text
+                                        p.tit
+                                            span.name= info.user.username
+                                            sapn.data= info.created.toLocaleString()
+                                        p.ct= info.content
+                        include ./layout/laypage.pug
+
+block scripts
+  script(type="text/javascript", src="/js/message.js")
+  script(type="text/javascript").
+    layui.config({
+      base: '/js/util/'
+    }).use(['element','laypage','form','menu'],function(){
+      element = layui.element,laypage = layui.laypage,form = layui.form,menu = layui.menu;
+      laypage.render({
+        elem: 'demo'
+        ,count: 70 //数据总数，从服务端得到
+      });
+      menu.init();
+      menu.submit()
+    });
+    let list = document.querySelectorAll('.cont');
+    const page = document.getElementById("laypage");
+    const text = document.getElementsByClassName('list-cont')[0];
+    const com = document.getElementsByClassName('ct');
+    for(let i = 0; i < com.length; i++){
+      let text = com[i].innerText;
+      com[i].innerHTML = `${text}`
+    }
+    console.log(com)
+    let len = list.length - 1;
+    if(len === 0){
+      page.style.display = 'none';
+      text.innerHTML = `<p class='addMessage'>还没有小伙伴留言呢，快来说一句吧 !</p>`      
+    }else{
+      page.style.display = 'block';
+    }
+                            

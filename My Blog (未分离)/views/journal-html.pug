@@ -1,0 +1,39 @@
+extends ./journal-template
+
+
+block main
+    .layui-col-md8
+        ul.article-list
+            each info in artList
+                if info.tips==='html'
+                    li
+                        a.list-face
+                            img(src=info.author.avatar, alt=info.author)
+                        h2(data-arttip=info.tips).Title
+                            a.layui-badge= info.tips
+                            a.articlt-title.ellipsis(href=`/journal/article/${info._id}`)= info.title
+                        .list-info
+                            a= info.author.username
+                            p.UpdateTime 更新时间:
+                            span= info.updatedAt.toLocaleString()
+                            p.CreatedTime 发布时间:
+                            span= info.created.toLocaleString()
+                            span.list-reply
+                                i(title="赞").layui-icon.layui-icon-praise
+                                = info.like
+                                i(title="评论").layui-icon.layui-icon-reply-fill
+                                = info.commentNum
+                                i(title="阅读量").layui-icon.layui-icon-read
+                                = info.readNum
+        include ./layout/laypage.pug
+block javascript
+    script(type="text/javascript").
+        const list = document.querySelectorAll(".article-list li");
+        const listLeft = document.getElementById("laypage");
+        const textLeft = document.getElementsByClassName('layui-col-md8')[0]
+        if(list.length === 0){
+            listLeft.style.display = 'none';
+            textLeft.innerHTML = `<p class='addlog'>还没有小伙伴发布该模块日志，赶紧<a class="layui-btn layui-bg-blue" href="/journal/article">发布一篇</a>吧 !</p>`      
+        }else{
+            listLeft.style.display = 'block';
+        };  

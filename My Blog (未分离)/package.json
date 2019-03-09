@@ -1,0 +1,33 @@
+{
+  "name": "First-blog",
+  "version": "1.0.0",
+  "description": "简易的个人博客",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bigbao0922/First-blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bigbao0922/First-blog/issues"
+  },
+  "homepage": "https://github.com/bigbao0922/First-blog#readme",
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "koa": "^2.7.0",
+    "koa-body": "^4.0.8",
+    "koa-logger": "^3.2.0",
+    "koa-multer": "^1.0.2",
+    "koa-router": "^7.4.0",
+    "koa-session": "^5.10.1",
+    "koa-static": "^5.0.0",
+    "koa-views": "^6.1.5",
+    "mongoose": "^5.4.11",
+    "pug": "^2.0.3"
+  }
+}

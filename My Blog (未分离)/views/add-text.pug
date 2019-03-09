@@ -1,0 +1,153 @@
+extends ./layout/layout
+
+block css
+  style.
+    #main .layui-container {
+      margin-bottom: 15px;
+      border-radius: 2px;
+      background-color: #fff;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .05);
+      border: 1px solid #fff;
+
+    }
+    .article-add {
+      padding-top: 7.5px;
+    }
+
+    .layui-form .layui-form-label{
+      width: 110px;
+      padding: 8px 15px;
+      height: 38px;
+      line-height: 20px;
+      border: 1px solid #e6e6e6;
+      border-radius: 2px 0 0 2px;
+      text-align: center;
+      background-color: #FBFBFB;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      box-sizing: border-box;
+    }
+
+    .layui-tab-title{
+      margin-bottom: 20px;
+    }
+
+    .nav a:nth-child(1){
+      color: #ff7f21;
+    }
+
+    #upload {
+        background-color: #009688;
+        margin-right: 10px;
+    }
+
+    .layui-upload-list{
+      display: inline-block;
+    }
+
+    .layui-upload-list img{
+      height: 100px;
+    }
+
+block contents
+  #main
+    .layui-container
+      .article-add.layui-form
+        .layui-tab.layui-tab-brief(lay-filter="user")
+          ul.layui-tab-title
+            li.layui-this 编辑文章
+          #editing.layui-form.layui-form-content
+            .layui-tab-item.layui-show
+              form(action="/journal/article", method="POST")
+                .layui-row.layui-col-space15.layui-form-item
+                  .layui-col-md3
+                    label.layui-form-label 分类
+                    .layui-input-block
+                      select(lay-verify="required", name="tips", lay-filter="column")
+                        option
+                        option(value="first") 前端开发
+                        option(value="second") 后端开发
+                        option(value="thirdly") 开发工具
+                  .layui-col-md9
+                    label(for="L_title").layui-form-label 标题
+                    .layui-input-block
+                      input(type="text", name="title" required="", lay-verify="required" autocomplete="off")#L_title.layui-input                  
+                .layui-form-item.layui-form-text
+                  textarea(style="display: none;")#article-content
+                  button(type="button")#upload.layui-btn 选择文章图片
+                  .layui-upload-list
+                    img.layui-upload-img#demo1
+                    p#demoText
+          .layui-form-item
+            button(lay-filter="send" lay-submit).layui-btn 立即发表
+          
+
+
+          
+
+block scripts
+  script.
+    layui.use(['form', 'layedit', "element", "upload"], function() {
+      const form = layui.form;
+      const layedit = layui.layedit;
+      const upload = layui.upload;
+      const $ = layui.$;
+
+      const index = layedit.build('article-content', {
+        hideTool: [
+          'image' //插入图片
+        ]
+      }); //建立编辑器
+
+      form.on("submit(send)", (res) => {
+        const { tips, site, title, photo, content } = res.field
+        if(layedit.getText(index).trim().length === 0)return layer.alert("请输入照片描述")
+        
+        const data = {
+          tips,
+          site,
+          title,
+          photo: $('#demo1').attr('src'),
+          content: layedit.getContent(index)
+        }
+        console.log(data)
+        $.post("/text", data, (msg) => {
+          if(msg.status){
+            layer.alert('发表成功', (res) => {
+              location.href = "/"
+            })
+          }else{
+            layer.alert(`发表失败，失败信息：${msg.msg}`)
+          }
+        })
+      })
+      //普通图片上传
+      var uploadInst = upload.render({
+        elem: '#upload'        
+        ,size: 60 //限制文件大小，单位 KB
+        ,url: '/upload/photo'
+        ,before: function(obj){
+          //预读本地文件示例，不支持ie8
+          obj.preview(function(index, file, result){
+            $('#demo1').attr('src', result); //图片链接（base64）
+          });
+        }
+        ,done: function(res){
+          //如果上传失败
+          if(res.code > 0){
+            return layer.msg('上传失败');
+          }
+          
+          //上传成功
+        }
+        ,error: function(){
+          //演示失败状态，并实现重传
+          var demoText = $('#demoText');
+          demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+          demoText.find('.demo-reload').on('click', function(){
+            uploadInst.upload();
+          });
+        }
+      });
+    });

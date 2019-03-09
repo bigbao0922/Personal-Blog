@@ -1,0 +1,40 @@
+extends ./layout/layout
+
+block css
+  link(rel="stylesheet", href="/css/journal.css")
+  link(rel="stylesheet", href="/css/article.css")
+
+//- 
+  文章标题
+  作者
+  时间
+  tips
+  content
+
+  评论：
+    头像
+    名字
+    时间
+    内容
+
+
+block contents
+  include ./layout/tag
+  .content.whisper-content
+    .cont.content
+      .whisper-list
+        .item-box
+      //- 右侧公告
+      include ./layout/right_tag
+        .date
+          span#testView
+            #test2
+    p.top
+    p.down
+
+
+
+
+block scripts
+  script(type="text/javascript", src="/js/article.js")
+  

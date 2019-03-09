@@ -1,0 +1,123 @@
+extends ./layout/layout
+
+block css
+  link(rel="stylesheet", href="/css/journal.css")
+  link(rel="stylesheet", href="/css/article.css")
+
+//- 
+  文章标题
+  作者
+  时间
+  tips
+  content
+
+  评论：
+    头像
+    名字
+    时间
+    内容
+
+
+block contents
+  include ./layout/tag
+  .content.whisper-content
+    .cont.content
+      .whisper-list
+        .item-box
+          h1(data-artid=article._id).Title= article.title
+          .item
+            .whisper-title
+              i.layui-icon.layui-icon-date
+              span 发表于：
+              span.date= article.created.toLocaleString().slice(0,9)
+              span.hour= article.created.toLocaleString().slice(9)
+              span &nbsp;类别：
+              span.tips= article.tips
+            p.text-cont= article.content
+            //- .img-box
+            //-   img(src='')
+            .op-list
+              p.like
+                i.layui-icon.layui-icon-praise
+                span= article.like
+              p.edit
+                i.layui-icon.layui-icon-reply-fill
+                span= article.commentNum
+              p.read
+                i.layui-icon.layui-icon-read
+                span= article.readNum
+              p.off(off = 'true')
+                span 收起
+                i.layui-icon.layui-icon-up
+
+          //- 评论
+          .review-version
+            .form
+              img(src=session.avatar)
+              form.layui-form(action="")
+                .layui-form-item.layui-form-text
+                  .layui-input-block
+                    textarea.layui-textarea#layui-textarea(name="desc")
+                .layui-form-item
+                  .layui-input-block(style="text-align: right;")
+                    button.layui-btn.definite 确定
+            .list-cont
+              each info in comment
+                .cont
+                  .img
+                    img(src=info.user.avatar)
+                  .text
+                    p.tit
+                      span.name= info.user.username
+                      span.data= info.created.toLocaleString()
+                      p.ct= info.content
+            include ./layout/laypage.pug
+      //- 右侧公告
+      include ./layout/right_tag
+        .date
+          span#testView
+            #test2
+    p
+      |上一篇 :
+      if prev.length != 0
+        a.prev(href=`/journal/article/${prev[0]._id}`)= prev[0].title
+      else
+        span 前面已经没有啦！
+    p 
+      |下一篇 :
+      if next.length != 0
+        a.next(href=`/journal/article/${next[0]._id}`)= next[0].title
+      else
+        span 这已经是最后一篇!
+    
+
+
+
+
+block scripts
+  script(type="text/javascript", src="/js/article.js")
+  script(type="text/javascript").
+    const list = document.querySelectorAll(".list-cont .cont");
+    const listLeft = document.getElementById("laypage");
+    const textLeft = document.getElementsByClassName('list-cont')[0]
+    const content = document.getElementsByClassName('text-cont')[0];
+    let textAll = content.innerText;
+    content.innerHTML = `${textAll}`
+    if(list.length === 0){
+      listLeft.style.display = 'none';
+      textLeft.innerHTML = `<p class='addComment'>还没有小伙伴发表自己的想法，赶紧写下你的想法吧 !</p>`      
+    }else{
+      listLeft.style.display = 'block';
+    }
+   layui.config({
+      base: '/js/util/'
+    }).use(['element','laypage','form','menu'],function(){
+      element = layui.element,laypage = layui.laypage,form = layui.form,menu = layui.menu;
+    //-  laypage.render({
+    //-    elem: 'demo'
+    //-    ,count: 70 //数据总数，从服务端得到
+    //-  });
+      menu.init();
+      menu.off();
+      menu.submit()
+    });

@@ -1,0 +1,34 @@
+extends ./layout/layout
+
+block css
+  link(rel="stylesheet", href="/css/main.css")
+  link(rel="stylesheet", href="/css/journal.css")
+//- 
+  artList
+    头像
+    tips
+    文章url
+    作者
+    时间
+    评论数
+
+block contents
+  include ./layout/tag
+
+  .layui-container.main
+    .layui-row.layui-col-space15
+      block main
+
+      
+                
+      //- 右侧公告
+      include ./layout/right_tag
+      
+block scripts
+  script( type="text/javascript", src='/js/journal-template.js')
+  script(type="text/javascript").
+    const recommend = document.querySelectorAll(".hotList p");
+    const text = document.getElementsByClassName('hotList')[0]
+    if(recommend.length === 0){
+      text.innerHTML = `<p class='hotArticle'>还没有热门推荐，看看其他的吧 o(*￣︶￣*)o</p>`      
+    }

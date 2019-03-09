@@ -1,0 +1,103 @@
+.space{
+    margin-top: 20px;
+}
+
+
+.blog-column-right{
+    width: 90%;
+    margin: auto;
+}
+
+.cont-text{
+    margin-top: 10px;
+    text-align: left;
+}
+
+.cont-text .img img{
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+}
+
+.cont-text .data,p{
+    line-height: 40px;
+}
+
+.cont-text p{
+    margin: 0 5px;
+}
+
+.cont-text .briefly {
+    line-height: 24px;
+}
+
+.cont-text .address{
+    line-height: 30px;
+    margin-left: 10px;
+}
+
+.cont-text .briefly{
+    margin-left: 10px;
+}
+
+.img{
+    display: flex;
+    color: #ff7f21;
+}
+
+.layui-laypage{
+    margin: 50px 40%;
+}
+
+.space .layui-col-xs12{
+    width: 25%;
+}
+/* 
+.layui-col-xs12{
+    display: table-cell;
+    text-align: center;
+} */
+.item{
+    cursor: pointer;
+    transition: 1s;
+}
+
+.item>img{
+    height: 160px;
+    transition: all 2s;
+    -moz-transition: width 0.6s; /* Firefox 4 */
+    -webkit-transition: width 0.6s; /* Safari 和 Chrome */
+    -o-transition: width 0.6s; /* Opera */
+}
+
+.item>img:hover{    
+    transition: 1s;
+    transform: scale(2);
+    -ms-transform:scale(2);     /* IE 9 */
+    -moz-transform:scale(2);     /* Firefox */
+    -webkit-transform:scale(2); /* Safari 和 Chrome */
+    -o-transform:scale(2);     /* Opera */
+
+}
+
+.addalbum{
+    font-size: 20px;
+    text-align: center;
+    color: #ddd;
+}
+
+.addalbum .layui-bg-blue{
+    background-color: #fff !important;
+    color: #F3D182 !important;
+    font-size: 20px;
+    padding: 0 10px !important;
+}
+
+.layui-fluid{
+    padding: 50px 0;
+    margin: 100px 0;
+}
+
+.nav a:nth-child(4){
+    color: #ff7f21;
+  }

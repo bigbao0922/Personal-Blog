@@ -1,0 +1,9 @@
+.expand{
+    float: right;
+    font: bold 20px '';
+    color: #ff7f21;
+    }
+
+.layui-fluid .layui-col-xs12 .img{
+    margin-top: 28px;
+}

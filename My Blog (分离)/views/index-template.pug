@@ -1,0 +1,17 @@
+extends ./layout/layout
+
+
+block contents
+  include ./layout/banner
+  .content
+    .cont.w1000
+      .title
+        span.layui-breadcrumb(lay-separator="|")
+          a.first(href="/index/first") 前端开发
+          a.second(href="/index/second") 后端开发
+          a.thirdly(href="/index/thirdly") 开发工具
+        span.addText
+      .list-item
+  
+
+

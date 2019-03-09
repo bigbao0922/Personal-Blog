@@ -1,0 +1,26 @@
+.layui-col-md4
+  .layui-card
+    .layui-card-header
+      strong 热门推荐
+    .layui-card-body.announce.hotList
+      each info in hotArt
+        p
+          a(href=`/journal/article/${info._id}`)= `【${info.tips} 模块】  ` + info.title
+          span.list-reply
+            i(title="赞").layui-icon.layui-icon-praise
+            = info.like
+            i(title="评论").layui-icon.layui-icon-reply-fill
+            = info.commentNum
+            i(title="阅读量").layui-icon.layui-icon-read
+            = info.readNum
+  .date
+    span#testView
+      #test2
+
+block  javascript
+  script(type="text/javascript").
+    const recommend = document.querySelectorAll(".hotList p");
+    const text = document.getElementsByClassName('hotList')[0]
+    if(recommend.length === 0){
+      text.innerHTML = `<p class='hotArticle'>还没有热门推荐，看看其他的吧 o(*￣︶￣*)o</p>`      
+    }

@@ -1,0 +1,30 @@
+.cont-info .like{
+    float: none;
+}
+
+.cont-info>span{
+    margin-right: 15px;
+}
+
+.cont-info>span>span{
+    margin: 8px;
+}
+
+.comment .img img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+#laypage{
+    text-align: center;
+}
+
+.article-cont>img{
+    width: 500px !important;
+    margin: 5px 25%;
+}
+
+.details-content .article-cont p{
+    padding: 5px 0;
+}

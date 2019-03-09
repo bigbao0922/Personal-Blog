@@ -1,0 +1,28 @@
+extends ./layout/layout
+
+
+block contents
+  include ./layout/banner
+  .content
+    .cont.w1000
+      .title
+        span.layui-breadcrumb(lay-separator="|")
+          a.first(href="/index/first") 前端开发
+          a.second(href="/index/second") 后端开发
+          a.thirdly(href="/index/thirdly") 开发工具
+        span 
+          if session.role > 1
+            a(href="/text").layui-btn.layui-bg-blue 添加文章
+          else
+            p.expand 了解一下
+      block main
+
+
+
+  
+    
+    
+    
+    
+
+

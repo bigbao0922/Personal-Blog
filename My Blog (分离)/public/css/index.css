@@ -1,0 +1,24 @@
+.expand{
+    float: right;
+    font: bold 20px '';
+    color: #ff7f21;
+    }
+
+.layui-fluid .layui-col-xs12 .img{
+    margin-top: 28px;
+}
+
+.addlog {
+    display: block;
+    width: 70%;
+    padding: 120px;
+    font-size: 20px;
+}
+
+.addlog a {
+    background: #fff !important;
+    color: #F3D182 !important;
+    font-size: 22px;
+    padding: 0 5px;
+}
+

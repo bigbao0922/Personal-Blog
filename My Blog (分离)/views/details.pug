@@ -1,0 +1,34 @@
+extends ./layout/layout
+block css
+  style.
+    .nav a:nth-child(1){
+        color: #ff7f21;
+    }
+
+    .content .review-version .list-cont .cont .text {
+      padding-left: 55px;
+    }
+
+
+block contents
+    .content.whisper-content.leacots-content.details-content
+        .cont.w1000
+            .whisper-list
+                .item-box
+                    .review-version
+                        .form-box
+                            .article-cont
+                            .form
+                              form.layui-form(action="")
+                                  .layui-form-item.layui-form-text
+                                      .layui-input-block
+                                          textarea#layui-textarea(class="layui-textarea")
+                                  .layui-form-item
+                                      .layui-input-block(style="text-align: right;")
+                                          button.layui-btn.definite 确定
+                        .volume
+                        .list-cont
+                    include ./layout/laypage.pug
+block scripts
+  script(type="text/javascript", src="/js/text.js")
+  script(type="text/javascript", src="/js/details.js")

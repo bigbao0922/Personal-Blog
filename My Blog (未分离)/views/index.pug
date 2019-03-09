@@ -1,0 +1,73 @@
+extends ./layout/layout
+
+block css
+  style.
+    .nav a:nth-child(1){
+      color: #ff7f21;
+    }
+    .content .cont .list-item .item .item-cont p.briefly{
+      height: 65px;
+    }
+
+//- 
+  artList
+    头像
+    tips
+    文章url
+    作者
+    时间
+    评论数
+
+block contents
+  include ./layout/banner
+  .content
+    .cont.w1000
+      .title
+        span.layui-breadcrumb(lay-separator="|")
+          a(href="/index/first") 前端开发
+          a(href="/index/second") 后端开发
+          a(href="/index/thirdly") 开发工具
+        span 
+          if session.role > 1
+            a(href="/text").layui-btn.layui-bg-blue 添加文章
+          else
+            p.expand 了解一下
+      .list-item
+        each info in textList
+          .item
+            .layui-fluid
+                .layui-row
+                    .layui-col-xs12.layui-col-sm4.layui-col-md5
+                        .img
+                            img(src=info.photo)
+                    .layui-col-xs12.layui-col-sm8.layui-col-md7
+                        .item-cont
+                          h3= info.title
+                              button.layui-btn.layui-btn-danger.new-icon new
+                          - var tip = info.tips
+                          case tip
+                            when 'first': h5 前端开发
+                            when 'second': h5 后端开发
+                            when 'thirdly': h5 开发工具
+                          p.briefly= info.content
+                          a.go-icon(href=`/text/${info._id}`)
+
+block scripts
+  script(type="text/javascript").
+    const content = document.getElementsByClassName('briefly');
+    for(let i = 0; i < content.length; i++){
+      let text = content[i].innerText;
+      content[i].innerHTML = `${text}`
+    }
+    layui.config({
+        base: '/js/util/'
+      }).use(['element','laypage','jquery','menu'],function(){
+        element = layui.element,laypage = layui.laypage,$ = layui.$,menu = layui.menu;
+    });
+  
+    
+    
+    
+    
+
+

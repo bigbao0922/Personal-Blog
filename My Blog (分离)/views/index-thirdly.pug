@@ -1,0 +1,29 @@
+extends ./index-template
+
+block css
+  style.
+    .content .cont .title a.thirdly{
+      color: #ff7f21 !important;
+    }
+    
+    .nav a:nth-child(1){
+      color: #ff7f21;
+    }
+    
+    .content .cont .list-item .item .item-cont div.briefly{
+      height: 65px;
+      overflow: hidden;
+    }
+    
+
+
+
+
+block scripts
+  script(src="/js/index-thirdly.js")
+  script(type="text/javascript").
+    const content = document.getElementsByClassName('briefly');
+    for(let i = 0; i < content.length; i++){
+      let text = content[i].innerText;
+      content[i].innerHTML = `${text}`
+    }

@@ -1,0 +1,47 @@
+extends ./admin
+
+block main
+  table(lay-data="{width: 892, url:'/user/albums', page:true, id:'idTest'}", lay-filter="demo").layui-table
+    thead
+      tr
+        th(lay-data="{field:'site', align:'center'}") 拍摄地址
+        th(lay-data="{field:'photo', align:'center'}") 照片地址
+        th(lay-data="{field:'content', align:'center'}") 描述
+        th(lay-data="{fixed: 'right', width:178, align:'center', toolbar: '#barDemo'}") 操作
+  script(type="text/html")#barDemo
+    a(lay-event="del").layui-btn.layui-btn-danger.layui-btn-xs 删除
+
+
+  script.
+    layui.use(['table', 'layer'], function(){
+      const table = layui.table
+      const layer = layui.layer
+      const $ = layui.$
+      
+      table.on("tool(demo)", (obj) => {
+        const data = obj.data
+        const _id = data._id
+        //console.log(data)
+        if(obj.event !== "del") return
+
+        layer.confirm("确认删除？", () => {
+          $.ajax({
+            method: "delete",
+            url: "/albums/" + _id,
+            data: {
+              _id
+            },
+            success(res){
+              if(res.state){
+                layer.msg(res.message, {
+                  anim: 1,
+                  time: 800
+                }, () => location.reload())
+              }else{
+                console.error(res.message)
+              }
+            }
+          })
+        })
+      })
+    });

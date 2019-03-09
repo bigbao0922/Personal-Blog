@@ -1,0 +1,63 @@
+#main{
+  padding: 30px;
+  background: #eee
+}
+/* 主要内容区域设置最小高度 */
+#main .layui-container{
+  width: 460px;
+  min-height: 500px;
+  margin-bottom: 30px;
+  margin-top: 50px;
+  padding: 0;
+  border:1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+}
+#main .layui-tab-card {
+  border: none;
+  box-shadow: none;
+  margin: 0;
+}
+#main .layui-tab-title{
+  height: 60px;
+  border: none;
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
+  background-color: #e4e1e1 !important;
+}
+#main .layui-tab-title li{
+  height: 100%;
+  width: 50%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  line-height: 60px;
+  font-size: 16px;
+  text-align: center;
+  color: #616161;
+}
+.layui-tab-title .layui-this:after{
+  border-color:#fff;
+}
+#main .layui-tab-title li:nth-child(1){
+  border-top-left-radius: 10px;
+}
+#main .layui-tab-title li:nth-child(2){
+  border-top-right-radius: 10px;
+}
+#main .layui-tab-title li a{
+  height: 100%;
+}
+#main .layui-form-item{
+  margin-top: 24px;
+}
+.imgload{
+  border: none;
+  margin-top: 5px;
+}
+.layui-input, .layui-input-block{
+  width: 220px;
+}
+.layui-btn~.layui-btn{
+  float: right;
+}

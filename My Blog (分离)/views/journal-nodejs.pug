@@ -1,0 +1,17 @@
+extends ./journal-template
+
+block css
+  link(rel="stylesheet", href="/css/main.css")
+  link(rel="stylesheet", href="/css/journal.css")
+  style.
+    .blog-panel ul li:nth-child(5) a{
+      color: #5FB878;
+    }
+
+
+block main
+    .layui-col-md8
+        ul.article-list
+        include ./layout/laypage.pug
+block javascript
+    script(type="text/javascript", src='/js/journal-nodejs.js')

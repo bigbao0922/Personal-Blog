@@ -1,0 +1,58 @@
+extends ./layout/layout
+
+block css
+  link(rel="stylesheet", href="/css/main.css")
+  link(rel="stylesheet", href="/css/journal.css")
+//- 
+  artList
+    头像
+    tips
+    文章url
+    作者
+    时间
+    评论数
+
+block contents
+  include ./layout/tag
+
+  .layui-container.main
+    .layui-row.layui-col-space15
+      //- 文章列表
+      .layui-col-md8
+        ul.article-list
+          each info in artList
+            li
+              a.list-face
+                  img(src=info.author.avatar, alt=info.author)
+              h2
+                  a.layui-badge= info.tips
+                  a.articlt-title.ellipsis(href=`/journal/article/${info._id}`)= info.title
+              .list-info
+                  a= info.author.username
+                  p.UpdateTime 更新时间:
+                  span= info.updatedAt.toLocaleString()
+                  p.CreatedTime 发布时间:
+                  span= info.created.toLocaleString()
+                  span.list-reply
+                      i(title="赞").layui-icon.layui-icon-praise
+                      = info.like
+                      i(title="评论").layui-icon.layui-icon-reply-fill
+                      = info.commentNum
+                      i(title="阅读量").layui-icon.layui-icon-read
+                      = info.readNum
+        include ./layout/laypage.pug
+
+      //- 右侧公告
+      include ./layout/right_tag
+block scripts
+  script( type="text/javascript", src='/js/journal.js')
+  script(type="text/javascript").
+    const allList = document.querySelectorAll(".article-list li");
+    const listLeft = document.getElementById("laypage");
+    const textLeft = document.getElementsByClassName('layui-col-md8')[0]
+    if(allList.length === 0){
+        listLeft.style.display = 'none';
+        textLeft.innerHTML = `<p class='addlog'>还没有小伙伴发布日志呢，赶紧<a class="layui-btn layui-bg-blue" href="/journal/article">发布一篇</a>吧 !</p>`      
+    }else{
+        listLeft.style.display = 'block';
+    };  

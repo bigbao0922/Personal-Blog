@@ -1,0 +1,41 @@
+extends ./layout/layout
+
+block css
+  link(rel="stylesheet", href="/css/main.css")
+  link(rel="stylesheet", href="/css/album.css")
+//- 
+  artList
+    头像
+    tips
+    文章url
+    作者
+    时间
+    评论数
+
+block contents
+  .blog-column-right
+    a(href="/album/upload").layui-btn.layui-bg-blue 继续上传
+    .img-list
+        .layui-fluid(style="padding:0")
+            .layui-row.layui-col-space30.space
+    include ./layout/laypage.pug
+
+block scripts
+  script(type="text/javascript", src="/js/album.js")
+  //- script( type="text/javascript").
+  //-   const list = document.querySelectorAll(".space .layui-col-xs12");
+  //-   const btn = document.querySelectorAll(".blog-column-right .layui-btn")[0];
+  //-   const listLeft = document.getElementById("laypage");
+  //-   const textLeft = document.getElementsByClassName('layui-fluid')[0]
+  //-   const content = document.getElementsByClassName('briefly');
+  //-   for(let i = 0; i < content.length; i++){
+  //-     let text = content[i].innerText;
+  //-     content[i].innerHTML = `${text}`
+  //-   }
+  //-   if(list.length === 0){
+  //-     listLeft.style.display = 'none';
+  //-     btn.style.display = 'none'      
+  //-     textLeft.innerHTML = `<p class='addalbum'>还没有小伙伴展示自己呢，赶紧<a class="layui-btn layui-bg-blue" href="/album/upload"">展示一下</a>吧 !</p>`      
+  //-   }else{
+  //-     listLeft.style.display = 'block';
+  //-   };  

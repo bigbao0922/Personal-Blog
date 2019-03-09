@@ -1,0 +1,32 @@
+extends ./layout/layout
+
+block css
+  link(rel="stylesheet", href="/css/main.css")
+  link(rel="stylesheet", href="/css/journal.css")
+  style.
+    .blog-panel ul li:nth-child(1) a{
+      color: #5FB878;
+    }
+//- 
+  artList
+    头像
+    tips
+    文章url
+    作者
+    时间
+    评论数
+
+block contents
+  include ./layout/tag
+
+  .layui-container.main
+    .layui-row.layui-col-space15
+      //- 文章列表
+      .layui-col-md8
+        ul.article-list
+        include ./layout/laypage.pug
+
+      //- 热门推荐
+      include ./layout/right_tag
+block scripts
+  script( type="text/javascript", src='/js/journal.js')

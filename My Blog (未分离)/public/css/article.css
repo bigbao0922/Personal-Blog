@@ -1,0 +1,92 @@
+.form img, .review-version img{
+  height:50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.cont{
+  width: 100%;
+  display: flex;
+}
+
+.whisper-content{  
+  width: 90%;
+}
+
+.content{
+  min-width: 1150px !important;
+  margin: 0 auto !important;
+  padding-top: 0 !important;
+  padding-bottom: 20px !important;
+}
+
+.content .whisper-list{
+  width: 66.6%;
+}
+
+.whisper-list .item{
+  padding-top: 10px !important;
+}
+
+.date{
+  margin-left: -5px;
+  margin-right: 5px !important;
+}
+
+h1.Title{
+  padding: 10px 0;
+  text-align: center;
+  color:#666;
+}
+
+.layui-textarea{
+  background-color: #fff !important;
+}
+
+.text{
+  width: 90%;
+  padding-left: 20px !important;
+}
+
+.tit{
+  margin-bottom: 10px !important;
+}
+.layui-layedit{
+  background-color: #fff !important;
+}
+
+.practice-mode{
+  display: flex;
+}
+
+.edit span{
+  padding-left: 3px;
+}
+
+.content>p{
+  line-height: 30px;
+  font-size: 16px;
+  padding: 5px 0;
+  font-weight: bold;
+}
+
+.prev,.next{
+  display: inline-block;
+  padding-left: 5px;
+  font-size: 16px;
+}
+
+.prev:hover,.next:hover{
+  color: royalblue;
+  text-decoration-line: underline;
+}
+
+.date{
+  width: 275px;
+  margin: 30px 0px 20px 0px;
+}
+
+.nav a:nth-child(2){
+  color: #ff7f21;
+}
+

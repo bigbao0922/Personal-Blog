@@ -1,0 +1,28 @@
+extends ./layout/layout
+
+block css
+  link(rel="stylesheet", href="/css/message.css")
+
+block contents
+    .content.whisper-content.leacots-content
+        .cont.w1000
+            .whisper-list
+                .item-box
+                    .review-version
+                        .form-box
+                            img.banner-img(src="/img/liuyan.jpg")
+                            .form
+                                form.layui-form(action="")
+                                    .layui-form-item.layui-form-text
+                                        .layui-input-block
+                                            textarea#layui-textarea(class="layui-textarea")
+                                    .layui-form-item
+                                        .layui-input-block(style="text-align: right;")
+                                            button.layui-btn.definite 确定
+                        .volume 全部留言
+                        .list-cont
+                        include ./layout/laypage.pug
+
+block scripts
+  script(type="text/javascript", src="/js/message.js")
+                            

@@ -1,0 +1,195 @@
+.main{
+    width: 90%;
+    min-height: 500px;
+    margin-bottom: 20px;
+  }
+
+.nav a:nth-child(2){
+  color: #ff7f21;
+}
+  
+  /* 
+    文章列表 背景色
+   */
+.layui-col-space15{
+    margin-right: -22px;
+    margin-left: -22px;
+    min-width: 1060px;
+  }
+  .layui-col-space15 .layui-col-md8{
+    border-radius: 2px;
+    background-color: #fff;
+    padding-bottom: 0;
+  }
+
+  .layui-col-space15 .layui-col-md8 .addlog{
+    display: block;
+    width: 70%;
+    padding: 120px;
+    font-size: 20px;
+  }
+
+  .layui-col-space15 .layui-col-md8 .addlog a{
+    background: #fff !important;
+    color: #F3D182 !important;
+    font-size: 16px;
+    padding: 0 5px;
+  }
+  
+  
+  
+  /*文章列表*/
+  
+.article-list li {
+  position: relative;
+  padding: 15px 15px 15px 75px;
+  border-bottom: 1px dotted #e2e2e2;
+  cursor: pointer;
+}
+
+.list-face {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+
+.UpdateTime{
+  display: inline-block;
+  font-size: 12px;
+  margin-right: -10px;
+}
+
+.CreatedTime{
+  display: inline-block;
+  font-size: 12px;
+  margin-right: -10px;
+}
+
+
+
+
+
+/*文章列表头像*/
+
+.article-list img {
+  display: block;
+  width: 45px;
+  height: 45px;
+  margin: 0;
+  border-radius: 2px;
+}
+
+.article-list h2 {
+  font-size: 0;
+  height: 22px;
+}
+
+.articlt-title {
+  display: inline-block;
+  width: 80%;
+  vertical-align: top;
+}
+
+.article-list h2 a {
+  font-size: 16px;
+  margin-right: 16px;
+}
+
+.article-list h2 .layui-badge {
+  padding: 2px;
+}
+
+.edit{
+  margin-right: 50px;
+}
+
+.read span{
+  padding: 0 5px;
+}
+
+/*描述*/
+
+.list-info {
+  margin-top: 7px;
+}
+
+.list-info * {
+  padding: 0 8px;
+  color: #999;
+}
+
+.list-reply {
+  float: right;
+  width: 150px;
+  margin-top: 3px;
+}
+
+
+/* 公告 */
+.announce p{
+  margin-top: 16px;
+}
+
+.blog-panel .layui-container{
+  padding: 0;
+}
+
+.blog-panel {
+  height: 60px;
+  min-width: 1200px;
+  line-height: 50px;
+  margin-bottom: 15px;
+  border-radius: 2px;
+}
+
+.blog-panel ul{
+  background-color: #eee;
+  margin-left: -6px;
+}
+
+.blog-panel ul li {
+  position: relative;
+  display: inline-block;
+  height: 50px;
+}
+
+.blog-panel ul li a {
+  padding: 0 20px;
+  color: #333;
+}
+
+.blog-panel .layui-container {
+  width: 90%;
+  position: relative;
+  vertical-align: middle;
+}
+
+.blog-column-right {
+  height: 50px;
+  position: absolute;
+  top: 0;
+  right: 10px;
+}
+
+#laypage {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.list-reply>i{
+  display: inline-block;
+  margin: 0 3px 0 8px;
+  width: 20px;
+}
+
+.announce p>a{
+  display: inline-block;
+  max-width: 350px;
+  min-width: 230px;
+  overflow: hidden;
+}
+
+.date{
+  width: 275px;
+  margin: 30px 0px 20px 20px;
+}

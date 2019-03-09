@@ -1,0 +1,44 @@
+extends ./index-template
+
+block css
+  style.
+    .content .cont .title a.first{
+      color: #ff7f21 !important;
+    }
+    
+    .nav a:nth-child(1){
+      color: #ff7f21;
+    }
+    
+    .content .cont .list-item .item .item-cont p.briefly{
+      height: 65px;
+    }
+    
+
+
+
+block main
+    .list-item
+        each info in textList
+            if info.tips==='first'
+                .item
+                    .layui-fluid
+                        .layui-row
+                            .layui-col-xs12.layui-col-sm4.layui-col-md5
+                                .img
+                                    img(src=info.photo)
+                            .layui-col-xs12.layui-col-sm8.layui-col-md7
+                                .item-cont
+                                    h3= info.title
+                                        button.layui-btn.layui-btn-danger.new-icon new
+                                    h5 前端开发
+                                    p.briefly= info.content
+                                    a.go-icon(href=`/text/${info._id}`)
+
+block scripts
+  script(type="text/javascript").
+    const content = document.getElementsByClassName('briefly');
+    for(let i = 0; i < content.length; i++){
+      let text = content[i].innerText;
+      content[i].innerHTML = `${text}`
+    }

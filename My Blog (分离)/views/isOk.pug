@@ -1,0 +1,15 @@
+extends ./layout/layout
+
+block contents
+  p(style="margin:200px;font-size:28px;color:#f60;") #{status} ,即将跳转至首页
+
+block scripts
+  //- 登录成功，返回根路由
+  script.   
+    //- console.log(#{status});//非对象
+    let val = !{JSON.stringify(status)}; 
+    setTimeout(() => {
+      location.href = "/"
+    }, 1500)
+  //- 弹框组件  
+  script(src="/js/dialog.js")

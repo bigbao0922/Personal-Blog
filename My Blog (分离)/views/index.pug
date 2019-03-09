@@ -1,0 +1,43 @@
+extends ./layout/layout
+
+block css
+  style.
+    .nav a:nth-child(1){
+      color: #ff7f21;
+    }
+    .content .cont .list-item .item .item-cont div.briefly{
+      height: 65px;
+      overflow: hidden;
+    }
+
+//- 
+  artList
+    头像
+    tips
+    文章url
+    作者
+    时间
+    评论数
+
+block contents
+  include ./layout/banner
+  .content
+    .cont.w1000
+      .title
+        span.layui-breadcrumb(lay-separator="|")
+          a(href="/index/first") 前端开发
+          a(href="/index/second") 后端开发
+          a(href="/index/thirdly") 开发工具
+        span.addText
+      .list-item
+        
+
+block scripts
+  script(src="/js/index.js")
+  
+    
+    
+    
+    
+
+
